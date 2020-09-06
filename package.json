@@ -1,15 +1,43 @@
 {
-  "name": "my-app",
+  "name": "next-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "nodemon server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js",
+    "lint": "eslint --ext .js --ext .jsx src pages --fix"
   },
   "dependencies": {
-    "next": "9.5.3",
+    "@koa/router": "^9.4.0",
+    "@zeit/next-less": "^1.0.1",
+    "axios": "^0.20.0",
+    "classnames": "^2.2.6",
+    "koa": "^2.13.0",
+    "less": "^3.12.2",
+    "mini-css-extract-plugin": "^0.11.0",
+    "moment": "^2.27.0",
+    "next": "^9.5.3",
+    "query-string": "^6.13.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+    "react-dom": "16.13.1",
+    "react-markdown": "^4.3.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "husky": "^4.2.5",
+    "nodemon": "^2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "eslintIgnore": ["next.config.js", "server.js"]
 }
